@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Salesforce ChatGPT Extension",
+  "version": "1.0",
+  "description": "Integrate Salesforce and ChatGPT for natural language interactions with your CRM data.",
+  "permissions": [
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://*.salesforce.com/*",
+    "https://api.openai.com/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "public/icon16.png",
+      "48": "public/icon48.png",
+      "128": "public/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icon16.png",
+    "48": "public/icon48.png",
+    "128": "public/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://platform.openai.com/account/api-keys"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
